@@ -1,10 +1,11 @@
 /* ==========================================================================
    CTRL + ALT + ESCAPE | Mission 03: The Glitch Module
-   Sprint 4: Mission Brief & Digital Investigation Console
+   Sprint 4.3: Glitch Website Integration & Verification Flow
    ========================================================================== */
 
 import { renderMissionConsoleLayout } from '../screens/MissionConsoleLayout.js';
 import { audio } from '../audio.js';
+import { gameState } from '../state.js';
 
 export function renderMission3(container) {
   // Required State
@@ -60,18 +61,22 @@ export function renderMission3(container) {
                     <div style="display: flex; justify-content: space-between">
                       <span style="color: var(--color-muted)">STATUS:</span>
                       <span id="investigationStatusText" style="color: ${websiteOpened ? 'var(--color-success)' : 'var(--color-warning)'}; font-weight: 700">
-                        ${websiteOpened ? 'Website Opened' : 'Website Not Opened'}
+                        ${websiteOpened ? '🟢 Investigation In Progress' : 'Website Not Opened'}
                       </span>
                     </div>
 
                     <div style="display: flex; justify-content: space-between">
-                      <span style="color: var(--color-muted)">EVIDENCE FOUND:</span>
-                      <span style="color: var(--color-text); font-weight: 700">0 / 3</span>
+                      <span style="color: var(--color-muted)">EVIDENCE STATUS:</span>
+                      <span style="color: ${websiteOpened ? 'var(--color-primary)' : 'var(--color-muted)'}; font-weight: 700">
+                        ${websiteOpened ? 'Waiting For Access Key...' : '0 / 8'}
+                      </span>
                     </div>
 
                     <div style="display: flex; justify-content: space-between">
                       <span style="color: var(--color-muted)">ACCESS KEY:</span>
-                      <span style="color: var(--color-danger); font-weight: 700">NOT RECOVERED</span>
+                      <span style="color: ${websiteOpened ? 'var(--color-warning)' : 'var(--color-danger)'}; font-weight: 700">
+                        ${websiteOpened ? 'AWAITING VERIFICATION' : 'NOT RECOVERED'}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -87,7 +92,7 @@ export function renderMission3(container) {
                     </span>
                   </div>
 
-                  <div style="margin-bottom: 1rem">
+                  <div style="margin-bottom: 0.8rem">
                     <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--color-muted); margin-bottom: 0.3rem">
                       RECOVERED URL:
                     </div>
@@ -97,9 +102,15 @@ export function renderMission3(container) {
                   </div>
                 </div>
 
-                <button class="hud-btn" id="btnLaunchWebsite" style="width: 100%; justify-content: center; padding: 0.65rem 1rem; font-family: var(--font-mono); font-size: 0.8rem">
-                  <span>🚀 LAUNCH WEBSITE</span>
-                </button>
+                <div>
+                  <button class="hud-btn" id="btnLaunchWebsite" style="width: 100%; justify-content: center; padding: 0.65rem 1rem; font-family: var(--font-mono); font-size: 0.8rem">
+                    <span>🚀 LAUNCH INVESTIGATION</span>
+                  </button>
+
+                  <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--color-muted); text-align: center; margin-top: 0.6rem; line-height: 1.4">
+                    After recovering Access Key #3, return to this Mission Console and verify the recovered key.
+                  </div>
+                </div>
               </div>
 
             </div>
@@ -119,9 +130,9 @@ export function renderMission3(container) {
                 <div>No evidence has been recovered.</div>
                 <div>Launch the recovered website to begin digital forensics.</div>
                 ${websiteOpened ? `
-                  <div style="margin-top: 0.6rem; color: var(--color-warning); font-weight: 700">[SYSTEM]</div>
-                  <div>External connection initiated to ${targetUrl}</div>
-                  <div>Awaiting evidence recovery from target server...</div>
+                  <div style="margin-top: 0.6rem; color: var(--color-success); font-weight: 700">[SYSTEM]</div>
+                  <div>External investigation connection opened: ${targetUrl}</div>
+                  <div>Awaiting Access Key #3 verification in Mission Console...</div>
                 ` : ''}
               </div>
             </div>
@@ -141,6 +152,54 @@ export function renderMission3(container) {
         }
       };
 
+      const showMissionSuccessPopup = () => {
+        audio.playSuccess();
+
+        const popupOverlay = document.createElement('div');
+        popupOverlay.style.cssText = `
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(4, 7, 17, 0.88);
+          backdrop-filter: blur(10px);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 9999;
+          animation: fadeIn 0.3s ease-out;
+        `;
+
+        popupOverlay.innerHTML = `
+          <div class="glass-card" style="padding: 2rem; max-width: 460px; width: 90%; text-align: center; border: 1px solid var(--color-success); box-shadow: 0 0 40px rgba(0, 255, 170, 0.3)">
+            <div style="font-size: 2.5rem; margin-bottom: 0.5rem">🎉</div>
+            <h2 style="font-family: var(--font-header); font-size: 1.4rem; color: var(--color-success); letter-spacing: 2px; margin-bottom: 1rem">
+              MISSION 03 COMPLETE
+            </h2>
+            <div style="font-family: var(--font-mono); font-size: 0.88rem; color: var(--color-text); line-height: 1.6; margin-bottom: 1.5rem">
+              Digital investigation completed successfully.<br><br>
+              Access Key #3 verified.<br><br>
+              <span style="color: var(--color-primary); font-weight: 700">Omega Protocol is now available.</span>
+            </div>
+            <button class="cyber-btn primary-btn full-width" id="btnReturnDashboard" style="justify-content: center; padding: 0.75rem 1.2rem; font-family: var(--font-mono); font-size: 0.85rem">
+              <span>RETURN TO DASHBOARD</span>
+            </button>
+          </div>
+        `;
+
+        document.body.appendChild(popupOverlay);
+
+        const returnBtn = popupOverlay.querySelector('#btnReturnDashboard');
+        if (returnBtn) {
+          returnBtn.addEventListener('click', () => {
+            audio.playClick();
+            document.body.removeChild(popupOverlay);
+            gameState.setView('DASHBOARD');
+          });
+        }
+      };
+
       const updateAccessKeyControls = () => {
         const keyTitle = container.querySelector('.access-key-title');
         if (keyTitle) {
@@ -154,14 +213,13 @@ export function renderMission3(container) {
           inputEl.disabled = !websiteOpened;
           if (!websiteOpened) {
             inputEl.placeholder = 'Launch website to begin investigation...';
-          } else if (inputEl.placeholder === 'Launch website to begin investigation...') {
-            inputEl.placeholder = 'Enter Access Key #3...';
+          } else {
+            inputEl.placeholder = 'Enter Access Key #3';
           }
 
           verificationReady = inputEl.value.trim().length > 0;
           submitBtn.disabled = !verificationReady;
 
-          // Attach input handler if not already attached
           if (!inputEl.dataset.listenerAttached) {
             inputEl.dataset.listenerAttached = 'true';
             inputEl.addEventListener('input', (e) => {
@@ -171,6 +229,21 @@ export function renderMission3(container) {
             });
           }
         }
+
+        // Attach Key Verification Submit Handler
+        const verifyForm = container.querySelector('#keyVerifyForm');
+        if (verifyForm && !verifyForm.dataset.listenerAttached) {
+          verifyForm.dataset.listenerAttached = 'true';
+          verifyForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (!verificationReady) return;
+
+            const res = gameState.verifyAccessKey('key3', accessKeyInput);
+            if (res.success) {
+              showMissionSuccessPopup();
+            }
+          });
+        }
       };
 
       renderContent();
@@ -178,4 +251,3 @@ export function renderMission3(container) {
     }
   });
 }
-
