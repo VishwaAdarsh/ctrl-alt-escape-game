@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GAME ELYSIUM // Digital Ecosystem [CORRUPTED]</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Overlay Effects -->
+  <div class="scanline-overlay"></div>
+  <div class="glitch-flash-overlay" id="glitchFlash"></div>
+  <div class="grid-background"></div>
+
+  <!-- Glassmorphism Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-brand" id="navLogo" data-tooltip="Hold cursor for 2s to analyze node...">
+        <div class="logo-icon">
+          <span class="logo-symbol">❖</span>
+          <div class="hover-progress-bar" id="logoHoverProgress"></div>
+        </div>
+        <div class="logo-text">
+          <span class="brand-title">GAME <span class="highlight">ELYSIUM</span></span>
+          <span class="brand-sub">SYS_VER 4.0.9</span>
+        </div>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#hero" class="active">HOME</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#features">FEATURES</a></li>
+        <li><a href="#services">SERVICES</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="sound-toggle-btn" id="soundToggleBtn" title="Toggle Audio FX">
+          <span id="soundIcon">🔊</span>
+          <span class="btn-text">SFX: ON</span>
+        </button>
+        <div class="sys-status-badge glitch-pulse">
+          <span class="status-dot"></span>
+          <span class="status-text">STATUS: INFECTED</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content Wrapper -->
+  <main class="main-content">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="hero-particles" id="heroParticles"></div>
+      <div class="hero-content">
+        <div class="cyber-badge">
+          <span class="badge-icon">⚡</span>
+          <span>RECOVERED NODE // SECTOR 07</span>
+        </div>
+        <h1 class="hero-title glitch-text" data-text="WELCOME TO GAME ELYSIUM">
+          WELCOME TO <br><span class="gradient-text">GAME ELYSIUM</span>
+        </h1>
+        <p class="hero-subtitle">
+          Next-Generation Neural Gaming & Autonomous Infrastructure. <br>
+          <span class="corrupt-text">[WARNING: DATA CORRUPTION SPOTTED AT NODE B-42]</span>
+        </p>
+        <div class="hero-cta-group">
+          <a href="#features" class="cyber-btn primary-btn">
+            <span>EXPLORE SYSTEM</span>
+            <span class="btn-arrow">→</span>
+          </a>
+          <a href="#about" class="cyber-btn secondary-btn">
+            <span>SYSTEM LOGS</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section (Distraction Content) -->
+    <section id="about" class="about-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">// 01. ARCHITECTURE</span>
+          <h2 class="section-title">ABOUT ELYSIUM PLATFORM</h2>
+          <div class="title-bar"></div>
+        </div>
+        
+        <div class="about-grid">
+          <div class="glass-card about-info">
+            <h3>Autonomous Distributed Mesh</h3>
+            <p>
+              Game Elysium powers over 10 million concurrent real-time gaming instances through cloud-edge synthesis.
+              Our proprietary neural dispatchers ensure ultra-low latency sub-5ms rendering pipelines worldwide.
+            </p>
+            <div class="stats-row">
+              <div class="stat-item">
+                <span class="stat-num">99.99%</span>
+                <span class="stat-lbl">UPTIME</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-num">4.2 TB/s</span>
+                <span class="stat-lbl">THROUGHPUT</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-num">120K</span>
+                <span class="stat-lbl">NODES</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card about-terminal">
+            <div class="terminal-header">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="term-title">sys_diagnostic.sh</span>
+            </div>
+            <pre class="terminal-body"><code><span class="t-cyan">$</span> ./verify_integrity.sh --all
+[OK] Core Kernel 6.12-elysium
+[OK] Neural Edge Pipeline
+<span class="t-red">[FAIL] Memory Sector #3 Integrity Compromised</span>
+<span class="t-yellow">[WARN] Encrypted payloads scattered in DOM nodes</span>
+<span class="t-cyan">$</span> listening on port 8080...</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section (Card 2 is Fragment 2 Trigger) -->
+    <section id="features" class="features-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">// 02. CORE MODULES</span>
+          <h2 class="section-title">SYSTEM FEATURES</h2>
+          <div class="title-bar"></div>
+        </div>
+
+        <div class="features-grid">
+          <!-- Card 1 -->
+          <div class="glass-card feature-card">
+            <div class="card-icon">🧠</div>
+            <h3>AI Engine</h3>
+            <p>Adaptive deep learning agents running procedural world generation and predictive physics.</p>
+            <div class="card-tag">MODULE_01</div>
+          </div>
+
+          <!-- Card 2: Clue Target (Double Click) -->
+          <div class="glass-card feature-card clue-card" id="cardCyberSecurity" data-fragment-target="2" title="Double click to run deep scan...">
+            <div class="card-icon glitch-icon">🛡️</div>
+            <h3>Cyber Security</h3>
+            <p>Quantum-grade encryption matrix securing neural telemetry & transaction ledgers.</p>
+            <div class="card-tag highlight-tag">MODULE_02 // SCAN TARGET</div>
+            <div class="scan-overlay"></div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="glass-card feature-card">
+            <div class="card-icon">☁️</div>
+            <h3>Cloud Infrastructure</h3>
+            <p>Zero-latency distributed edge compute clusters with auto-scaling dynamic nodes.</p>
+            <div class="card-tag">MODULE_03</div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="glass-card feature-card">
+            <div class="card-icon">⚡</div>
+            <h3>Neural Gaming</h3>
+            <p>Direct haptic brain-computer interface protocol standard for immersive experiences.</p>
+            <div class="card-tag">MODULE_04</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">// 03. PIPELINE</span>
+          <h2 class="section-title">SERVICES & WORKFLOW</h2>
+          <div class="title-bar"></div>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot">01</div>
+            <div class="glass-card timeline-content">
+              <h3>Quantum Telemetry</h3>
+              <p>Continuous monitoring of server packet health and high-frequency cryptographic logs.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot">02</div>
+            <div class="glass-card timeline-content">
+              <h3>Neural Mesh Sync</h3>
+              <p>Real-time synchronization across cross-region edge clusters with zero packet drop.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot">03</div>
+            <div class="glass-card timeline-content">
+              <h3>Zero-Trust Shield</h3>
+              <p>Automated isolation protocols for corrupted nodes and rogue data injections.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot">04</div>
+            <div class="glass-card timeline-content">
+              <h3>Bio-Interface Relay</h3>
+              <p>Ultra-responsive input streaming framework crafted for high-tier cyber console users.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">// 04. COMMUNICATIONS</span>
+          <h2 class="section-title">SYSTEM INQUIRIES</h2>
+          <div class="title-bar"></div>
+        </div>
+
+        <div class="contact-grid">
+          <div class="glass-card contact-form-card">
+            <form id="dummyForm" onsubmit="event.preventDefault(); alert('TERMINAL READ-ONLY: Communications link disabled due to network corruption.');">
+              <div class="form-group">
+                <label>OPERATOR NAME</label>
+                <input type="text" placeholder="Agent 07..." required>
+              </div>
+              <div class="form-group">
+                <label>COMM DISPATCH (EMAIL)</label>
+                <input type="email" placeholder="agent@digitalrecovery.unit" required>
+              </div>
+              <div class="form-group">
+                <label>REPORT DETAIL</label>
+                <textarea rows="3" placeholder="Enter investigation observation notes..."></textarea>
+              </div>
+              <button type="submit" class="cyber-btn primary-btn full-width">
+                <span>SEND TRANSMISSION</span>
+              </button>
+            </form>
+          </div>
+
+          <div class="glass-card contact-meta">
+            <div class="meta-item">
+              <span class="meta-icon">📍</span>
+              <div>
+                <h4>NODE LOCATION</h4>
+                <p>Elysium Sector 7 // Sub-Grid 902</p>
+              </div>
+            </div>
+            <div class="meta-item">
+              <span class="meta-icon">📞</span>
+              <div>
+                <h4>SECURE FREQUENCY</h4>
+                <p>+1 (800) 555-ELYSIUM</p>
+              </div>
+            </div>
+            <div class="meta-item">
+              <span class="meta-icon">✉️</span>
+              <div>
+                <h4>DISPATCH EMAIL</h4>
+                <p>support@gameelysium.local</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer (Copyright is Fragment 3 Trigger) -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="logo-symbol">❖</span>
+        <span>GAME ELYSIUM PLATFORM</span>
+      </div>
+      
+      <div class="footer-copyright" id="footerCopyright" data-fragment-target="3" title="Click multiple times to query sector ledger...">
+        <p>© 2026 GAME ELYSIUM INC. ALL RIGHTS RESERVED. <span class="copyright-code">[SYS_NODE_42]</span></p>
+        <div class="click-pulse-indicator" id="copyrightPulse"></div>
+      </div>
+
+      <div class="footer-links">
+        <a href="#hero">Privacy Policy</a>
+        <span>•</span>
+        <a href="#hero">Terms of Service</a>
+        <span>•</span>
+        <a href="#hero">Security Diagnostics</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Recovered Fragments Floating HUD Panel (Bottom Right) -->
+  <div class="hud-fragment-panel" id="hudPanel">
+    <div class="hud-header">
+      <div class="hud-title">
+        <span class="hud-icon">🧩</span>
+        <span>RECOVERED FRAGMENTS</span>
+      </div>
+      <div class="hud-counter" id="hudCounter">0 / 3</div>
+    </div>
+
+    <div class="hud-slots">
+      <div class="fragment-slot" id="slot1">
+        <span class="slot-label">FRAG A</span>
+        <span class="slot-val" id="slot1Val">---</span>
+      </div>
+      <div class="fragment-slot" id="slot2">
+        <span class="slot-label">FRAG B</span>
+        <span class="slot-val" id="slot2Val">---</span>
+      </div>
+      <div class="fragment-slot" id="slot3">
+        <span class="slot-label">FRAG C</span>
+        <span class="slot-val" id="slot3Val">---</span>
+      </div>
+    </div>
+
+    <button class="cyber-btn reconstruct-btn" id="reconstructBtn" disabled>
+      <span>⚡ RECONSTRUCT ACCESS KEY</span>
+    </button>
+  </div>
+
+  <!-- Fragment Recovery Notification Popup Modal -->
+  <div class="modal-backdrop" id="fragmentModal">
+    <div class="glass-modal hud-popup">
+      <div class="modal-glow-border"></div>
+      <div class="modal-header">
+        <span class="modal-badge-icon" id="modalBadgeIcon">📡</span>
+        <h3 id="modalTitle">SIGNAL RECOVERED</h3>
+      </div>
+      <div class="modal-body">
+        <p id="modalDesc">Fragment discovered in corrupted header node.</p>
+        <div class="fragment-display-box">
+          <span class="frag-label">FRAGMENT PART:</span>
+          <span class="frag-code" id="modalFragCode">ELY</span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="cyber-btn modal-close-btn" id="modalCloseBtn">
+          <span>SECURE FRAGMENT</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Access Key Reconstruction Assembly Modal -->
+  <div class="modal-backdrop" id="keyModal">
+    <div class="glass-modal hud-popup key-assembly-modal">
+      <div class="modal-glow-border neon-cyan"></div>
+      
+      <div class="modal-header">
+        <span class="modal-badge-icon">🔐</span>
+        <h3>ACCESS KEY #3 RECONSTRUCTION</h3>
+      </div>
+
+      <div class="modal-body">
+        <div class="scanning-phase" id="scanningPhase">
+          <div class="cyber-spinner"></div>
+          <p class="scan-status-text">DECRYPTING & SYNCHRONIZING FRAGMENTS...</p>
+          <div class="progress-bar-container">
+            <div class="progress-bar-fill" id="scanProgressFill"></div>
+          </div>
+        </div>
+
+        <div class="result-phase hidden" id="resultPhase">
+          <div class="success-banner">
+            <span>ACCESS KEY #3 GENERATED</span>
+          </div>
+          <div class="key-box">
+            <span class="key-label">RECOVERED KEY:</span>
+            <div class="key-display" id="finalAccessKeyDisplay">GE-42LK-91</div>
+          </div>
+          <p class="key-instruction">
+            Copy this Access Key and return to the <strong>Mission Console</strong> to verify and unlock the final mission!
+          </p>
+        </div>
+      </div>
+
+      <div class="modal-footer hidden" id="keyModalFooter">
+        <button class="cyber-btn primary-btn" id="copyKeyBtn">
+          <span>📋 COPY KEY & RETURN</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

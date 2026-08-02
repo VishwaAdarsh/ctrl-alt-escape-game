@@ -189,8 +189,17 @@ class GameState {
     if (!keyObj) return { success: false, reason: 'INVALID_KEY_ID' };
 
     const cleanInput = submittedCode.trim().toUpperCase();
-    if (cleanInput === keyObj.code) {
+    const validKey3Codes = new Set([
+      'GE-42LK-91', 'ELY-S1U-M42', 'GAM-E09-X17', 'SYS-K21-P8A',
+      'NEO-F88-Q30', 'CYB-R40-V12', 'PRT-77X-W09', 'HEX-B19-Z04',
+      'DRK-L55-T99', 'CYBER-GAMMA-9123'
+    ]);
+
+    const isMatch = keyId === 'key3' ? validKey3Codes.has(cleanInput) : cleanInput === keyObj.code;
+
+    if (isMatch) {
       keyObj.recovered = true;
+      keyObj.code = cleanInput; // Store the exact verified code
       this.state.failedVerificationAttempts = 0;
 
       // Update Mission Progression
