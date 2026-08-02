@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CTRL + ALT + ESCAPE | Game Elysium Mission Console</title>
+  <meta name="description" content="Interactive Technology Escape Challenge for TECHBIT 7.0 - Game Elysium Digital Recovery Team Mission Console.">
+  <!-- Modern Typography from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="cyber-theme">
+  <!-- CRT & Visual Overlay Effects -->
+  <div class="crt-overlay" id="crtOverlay"></div>
+  <div class="grid-background"></div>
+  <div class="particle-canvas-container">
+    <canvas id="particleCanvas"></canvas>
+  </div>
+
+  <!-- Main App Shell -->
+  <div id="app" class="app-container">
+    <!-- Header HUD will be mounted here -->
+    <header id="hudHeader" class="hud-header"></header>
+
+    <!-- Main Content Dynamic View -->
+    <main id="mainView" class="main-view"></main>
+
+    <!-- Access Denied / Granted Modal Notifications -->
+    <div id="notificationModal" class="notification-modal hidden" aria-live="assertive">
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+
+    <!-- Admin / Organizer Modal -->
+    <div id="adminModal" class="admin-modal hidden"></div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
