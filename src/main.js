@@ -13,6 +13,7 @@ import { renderMission3 } from './missions/Mission3_TheGlitch.js';
 import { renderFinalMission } from './missions/FinalMission_SystemRecovery.js';
 import { renderVictoryScreen } from './screens/VictoryScreen.js';
 import { renderFailureScreen } from './screens/FailureScreen.js';
+import { renderLeaderboardScreen } from './screens/LeaderboardScreen.js';
 
 class App {
   constructor() {
@@ -35,12 +36,15 @@ class App {
 
   setupAdminHotkeys() {
     window.addEventListener('keydown', (e) => {
-      // Admin Hotkey: Ctrl + Alt + Shift + E
-      if (e.ctrlKey && e.altKey && e.shiftKey && e.key.toUpperCase() === 'E') {
+      // Admin Hotkeys: Ctrl + Alt + Shift + E  or  Ctrl + Shift + A
+      const isE = e.key.toUpperCase() === 'E' || e.code === 'KeyE';
+      const isA = e.key.toUpperCase() === 'A' || e.code === 'KeyA';
+      if ((e.ctrlKey && e.altKey && e.shiftKey && isE) || (e.ctrlKey && e.shiftKey && isA)) {
         e.preventDefault();
-        if (this.adminModal) {
-          this.adminModal.classList.toggle('hidden');
-          renderAdminModal(this.adminModal);
+        const modal = document.getElementById('adminModal');
+        if (modal) {
+          modal.classList.remove('hidden');
+          renderAdminModal(modal);
         }
       }
     });
@@ -130,6 +134,9 @@ class App {
         break;
       case 'FAILURE':
         renderFailureScreen(this.mainView);
+        break;
+      case 'LEADERBOARD':
+        renderLeaderboardScreen(this.mainView);
         break;
       default:
         renderMissionDashboard(this.mainView);

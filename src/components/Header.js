@@ -115,7 +115,10 @@ export function renderHeader(container) {
   container.querySelector('#btnAdmin')?.addEventListener('click', () => {
     audio.playClick();
     const adminModal = document.getElementById('adminModal');
-    if (adminModal) adminModal.classList.remove('hidden');
+    if (adminModal) {
+      adminModal.classList.remove('hidden');
+      renderAdminModal(adminModal);
+    }
   });
 }
 

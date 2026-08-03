@@ -463,7 +463,7 @@
       <div class="key-panel-value" id="sbAccessKeyValue">GE-42LK-91</div>
       <div class="key-panel-status">MISSION COMPLETE</div>
       <button class="cyber-btn primary-btn full-width" id="sbCopyKeyBtn">
-        <span>📋 COPY KEY & RETURN TO CONSOLE</span>
+        <span>🚀 COPY & RETURN</span>
       </button>
     </div>
 
@@ -509,22 +509,30 @@
 
         <div class="result-phase hidden" id="resultPhase">
           <div class="success-banner">
-            <span>ACCESS KEY #3 GENERATED</span>
+            <span>MISSION COMPLETE</span>
           </div>
           <div class="key-box">
-            <span class="key-label">RECOVERED KEY:</span>
+            <span class="key-label">ACCESS KEY #3:</span>
             <div class="key-display" id="finalAccessKeyDisplay">GE-42LK-91</div>
           </div>
-          <p class="key-instruction">
+          <p class="key-instruction" id="keyInstruction">
             Copy this Access Key and return to the <strong>Mission Console</strong> to verify and unlock the final
             mission!
           </p>
+          <div class="fallback-notice hidden" id="fallbackNotice" style="margin-top: 1rem; padding: 0.8rem; background: rgba(0, 229, 255, 0.08); border: 1px dashed var(--color-primary, #00e5ff); border-radius: 4px; text-align: center; font-family: var(--font-mono); font-size: 0.82rem; color: #e0f7fa;">
+            <div style="font-weight: 700; color: var(--color-primary, #00e5ff); margin-bottom: 0.3rem;">Mission Console is already open.</div>
+            <div>Paste the copied Access Key there to continue.</div>
+            <div style="margin-top: 0.3rem; color: var(--color-muted, #6482a0);">You may now close this tab.</div>
+          </div>
         </div>
       </div>
 
-      <div class="modal-footer hidden" id="keyModalFooter">
-        <button class="cyber-btn primary-btn" id="copyKeyBtn">
-          <span>📋 COPY KEY & RETURN</span>
+      <div class="modal-footer hidden" id="keyModalFooter" style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
+        <button class="cyber-btn secondary-btn" id="copyKeyOnlyBtn">
+          <span>📋 COPY KEY</span>
+        </button>
+        <button class="cyber-btn primary-btn" id="copyAndReturnBtn">
+          <span>🚀 COPY & RETURN</span>
         </button>
       </div>
     </div>

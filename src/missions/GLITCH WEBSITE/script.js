@@ -309,7 +309,9 @@
     scanProgressFill: document.getElementById('scanProgressFill'),
     finalAccessKeyDisplay: document.getElementById('finalAccessKeyDisplay'),
     keyModalFooter: document.getElementById('keyModalFooter'),
-    copyKeyBtn: document.getElementById('copyKeyBtn')
+    copyKeyOnlyBtn: document.getElementById('copyKeyOnlyBtn'),
+    copyAndReturnBtn: document.getElementById('copyAndReturnBtn'),
+    fallbackNotice: document.getElementById('fallbackNotice')
   };
 
   // --------------------------------------------------------------------------
@@ -830,6 +832,7 @@
     if (elements.scanningPhase) elements.scanningPhase.classList.remove('hidden');
     if (elements.resultPhase) elements.resultPhase.classList.add('hidden');
     if (elements.keyModalFooter) elements.keyModalFooter.classList.add('hidden');
+    if (elements.fallbackNotice) elements.fallbackNotice.classList.add('hidden');
     if (elements.scanProgressFill) elements.scanProgressFill.style.width = '0%';
 
     playGlitchSound();
@@ -866,37 +869,109 @@
     updateDigitalForensicsUI();
   }
 
-  function handleCopyKey() {
-    playClick();
-    const key = activeSet.key;
-    if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(key).then(showCopiedFeedback, fallbackCopy);
-    } else {
-      fallbackCopy();
+  function triggerCopySuccessToast() {
+    playGlitchSound();
+    if (elements.toastTitle) {
+      elements.toastTitle.innerText = '✓ Access Key copied successfully.';
+    }
+    if (elements.toastLabel) {
+      elements.toastLabel.innerText = 'Access Key:';
+    }
+    if (elements.toastVal) {
+      elements.toastVal.innerText = activeSet.key;
+    }
+    if (elements.toastCountBadge) {
+      elements.toastCountBadge.innerText = 'READY';
+    }
+
+    if (elements.toastNotification) {
+      elements.toastNotification.classList.remove('active');
+      void elements.toastNotification.offsetWidth;
+      elements.toastNotification.classList.add('active');
+
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        elements.toastNotification.classList.remove('active');
+      }, 3000);
     }
   }
 
-  if (elements.copyKeyBtn) {
-    elements.copyKeyBtn.addEventListener('click', handleCopyKey);
-  }
-  if (elements.sbCopyKeyBtn) {
-    elements.sbCopyKeyBtn.addEventListener('click', handleCopyKey);
+  function copyKeyToClipboard(onSuccess) {
+    const key = activeSet.key;
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(key).then(onSuccess, () => {
+        fallbackCopyText(key);
+        onSuccess();
+      });
+    } else {
+      fallbackCopyText(key);
+      onSuccess();
+    }
   }
 
-  function fallbackCopy() {
-    const key = activeSet.key;
+  function fallbackCopyText(text) {
     const tempInput = document.createElement('input');
-    tempInput.value = key;
+    tempInput.value = text;
     document.body.appendChild(tempInput);
     tempInput.select();
     document.execCommand('copy');
     document.body.removeChild(tempInput);
-    showCopiedFeedback();
   }
 
-  function showCopiedFeedback() {
-    alert(`Access Key ${activeSet.key} copied to clipboard!\n\nReturn to Mission Console to verify and complete Mission 03.`);
-    if (elements.keyModal) elements.keyModal.classList.remove('active');
+  function handleCopyKeyOnly() {
+    playClick();
+    copyKeyToClipboard(() => {
+      triggerCopySuccessToast();
+    });
+  }
+
+  function handleCopyAndReturn() {
+    playClick();
+    copyKeyToClipboard(() => {
+      triggerCopySuccessToast();
+
+      let focused = false;
+      if (window.opener && !window.opener.closed) {
+        try {
+          window.opener.focus();
+          focused = true;
+        } catch (e) {
+          focused = false;
+        }
+      }
+
+      if (focused) {
+        try {
+          window.close();
+          setTimeout(() => {
+            if (!window.closed) {
+              showFallbackNotice();
+            }
+          }, 300);
+          return;
+        } catch (e) {
+          showFallbackNotice();
+        }
+      } else {
+        showFallbackNotice();
+      }
+    });
+  }
+
+  function showFallbackNotice() {
+    if (elements.fallbackNotice) {
+      elements.fallbackNotice.classList.remove('hidden');
+    }
+  }
+
+  if (elements.copyKeyOnlyBtn) {
+    elements.copyKeyOnlyBtn.addEventListener('click', handleCopyKeyOnly);
+  }
+  if (elements.copyAndReturnBtn) {
+    elements.copyAndReturnBtn.addEventListener('click', handleCopyAndReturn);
+  }
+  if (elements.sbCopyKeyBtn) {
+    elements.sbCopyKeyBtn.addEventListener('click', handleCopyAndReturn);
   }
 
   // --------------------------------------------------------------------------

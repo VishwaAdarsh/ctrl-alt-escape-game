@@ -2,6 +2,8 @@
    CTRL + ALT + ESCAPE | Global State Manager
    ========================================================================== */
 
+import { api } from './api.js';
+
 const STORAGE_KEY = 'GAME_ELYSIUM_STATE_V2';
 
 const INITIAL_STATE = {
@@ -42,6 +44,13 @@ class GameState {
     if (this.state.timerRunning && this.state.timerStarted) {
       this.startTimerInterval();
     }
+
+    // Sprint 7.0 Requirement: 10-Second Silent Auto-Save to Backend
+    setInterval(() => {
+      if (this.state.timerStarted) {
+        api.autoSaveState(this.state);
+      }
+    }, 10000);
   }
 
   loadState() {
@@ -213,6 +222,10 @@ class GameState {
         this.state.missions.mission3.status = 'COMPLETED';
         this.state.missions.finalMission.status = 'ACTIVE';
       }
+
+      // Sync key verification with backend
+      api.verifyAccessKey(keyId, cleanInput);
+      api.autoSaveState(this.state);
 
       this.notify();
       return { success: true, key: keyObj.code };
