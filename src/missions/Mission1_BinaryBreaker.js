@@ -47,11 +47,11 @@ export const BINARY_CHALLENGES = [
 // Player Answer Validation Helper Function
 export function validateBinaryAnswer(input, expectedKey = 'ELYSIUM-ALPHA-7701') {
   if (!input) return false;
-  
+
   // Clean & normalize user input (ignore leading/trailing whitespace, case-insensitive)
   const normalizedInput = input.trim().toUpperCase();
   const normalizedExpected = expectedKey.trim().toUpperCase();
-  
+
   // Accept standard key format or space/hyphen variations
   const cleanInput = normalizedInput.replace(/[\s-]/g, '');
   const cleanExpected = normalizedExpected.replace(/[\s-]/g, '');
@@ -67,7 +67,7 @@ export function renderMission1(container) {
     keyId: 'key1',
     objectiveText: 'Intercepted transmissions have been detected from an unknown source. Decode the binary transmissions and recover Access Key #1.',
     clueText: 'Each intercepted transmission contains one fragment of the solution. Decode all transmissions carefully before entering the Access Key. Do not reveal the answer.',
-    
+
     // Dynamic Module & Hint Rendering
     renderModule: (slotContainer) => {
       const state = gameState.get();
