@@ -296,7 +296,7 @@ export function renderFinalMission(container) {
   function executeAuthenticationSequence(submittedCode) {
     // Check Master Code validity
     const key1Code = (keys.key1 && keys.key1.code) ? keys.key1.code.trim().toUpperCase() : 'ELYSIUM-ALPHA-7701';
-    const key2Code = (keys.key2 && keys.key2.code) ? keys.key2.code.trim().toUpperCase() : 'RECOVERY-BETA-4096';
+    const key2Code = (keys.key2 && keys.key2.code) ? keys.key2.code.trim().toUpperCase() : 'ASTRA-3194';
     const key3Code = (keys.key3 && keys.key3.code) ? keys.key3.code.trim().toUpperCase() : 'CYBER-GAMMA-9123';
 
     const validMasterCodes = new Set([

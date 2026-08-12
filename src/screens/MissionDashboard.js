@@ -244,7 +244,7 @@ function showBootAnimation(onComplete) {
   bootOverlay.innerHTML = `
     <div class="boot-spinner"></div>
     <div>INITIALIZING ELYSIUM CORE RECOVERY...</div>
-    <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-muted)">STARTING MISSION TIMER (25:00)</div>
+    <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-muted)">STARTING MISSION TIMER (20:00)</div>
   `;
   document.body.appendChild(bootOverlay);
 

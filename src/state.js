@@ -9,8 +9,8 @@ const STORAGE_KEY = 'GAME_ELYSIUM_STATE_V2';
 const INITIAL_STATE = {
   view: 'DASHBOARD', // DASHBOARD (Layout A), MISSION_1, MISSION_2, MISSION_3, FINAL_MISSION (Layout B), VICTORY, FAILURE
   teamName: 'DRU-UNITY-01',
-  timerSeconds: 1500, // 25 Minutes
-  initialDuration: 1500,
+  timerSeconds: 1200, // 20 Minutes
+  initialDuration: 1200,
   timerRunning: false,
   timerStarted: false, // CRITICAL: Timer starts ONLY after pressing INITIALIZE MISSION
   elapsedSeconds: 0,
@@ -20,7 +20,7 @@ const INITIAL_STATE = {
   failedVerificationAttempts: 0,
   accessKeys: {
     key1: { code: 'ELYSIUM-ALPHA-7701', recovered: false },
-    key2: { code: 'RECOVERY-BETA-4096', recovered: false },
+    key2: { code: 'ASTRA-3194', recovered: false },
     key3: { code: 'CYBER-GAMMA-9123', recovered: false }
   },
   missions: {
@@ -264,7 +264,7 @@ class GameState {
       ...INITIAL_STATE,
       accessKeys: {
         key1: { code: 'ELYSIUM-ALPHA-7701', recovered: false },
-        key2: { code: 'RECOVERY-BETA-4096', recovered: false },
+        key2: { code: 'ASTRA-3194', recovered: false },
         key3: { code: 'CYBER-GAMMA-9123', recovered: false }
       },
       missions: {
