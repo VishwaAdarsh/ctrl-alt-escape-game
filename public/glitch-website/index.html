@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GAME ELYSIUM // Digital Ecosystem [CORRUPTED]</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Overlay Effects -->
+  <div class="scanline-overlay"></div>
+  <div class="glitch-flash-overlay" id="glitchFlash"></div>
+  <div class="grid-background"></div>
+
+  <!-- Red Zone Alert Overlay -->
+  <div class="redzone-overlay" id="redzoneOverlay">
+    <div class="redzone-card">
+      <div class="redzone-top-bar">
+        <span class="redzone-blink">🚨</span>
+        <span class="redzone-header-text">RED ZONE DETECTED</span>
+        <span class="redzone-top-secret">TOP SECRET</span>
+      </div>
+      <div class="redzone-divider"></div>
+      <div class="redzone-title" id="redzoneTitle">ACCESS FRAGMENT RECOVERED</div>
+      <div class="redzone-detail-box">
+        <span class="redzone-label" id="redzoneLabel">Fragment</span>
+        <span class="redzone-value" id="redzoneValue">GE</span>
+      </div>
+      <div class="redzone-sub">Classification Verified</div>
+      <div class="redzone-scanning-row">
+        <span class="scan-txt">Scanning...</span>
+        <div class="redzone-bar-bg">
+          <div class="redzone-bar-fill"></div>
+        </div>
+      </div>
+      <div class="redzone-footer">Stored Successfully</div>
+    </div>
+  </div>
+
+  <!-- Glassmorphism Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-brand red-zone red-zone-01" id="navLogo" data-redzone-id="1"
+        data-tooltip="Hold cursor for 2s to analyze node...">
+        <div class="logo-icon">
+          <span class="logo-symbol">❖</span>
+          <div class="hover-progress-bar" id="logoHoverProgress"></div>
+        </div>
+        <div class="logo-text">
+          <span class="brand-title">GAME <span class="highlight">ELYSIUM</span></span>
+          <span class="brand-sub" id="navVersion">SYS_VER 4.0.9</span>
+        </div>
+        <span class="redzone-status-badge" id="rzBadge1"></span>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#hero" class="active">HOME</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#features">FEATURES</a></li>
+        <li><a href="#services">SERVICES</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="sound-toggle-btn" id="soundToggleBtn" title="Toggle Audio FX">
+          <span id="soundIcon">🔊</span>
+          <span class="btn-text">SFX: ON</span>
+        </button>
+        <div class="nav-actions">
+          <button class="sound-toggle-btn" id="soundToggleBtn" title="Toggle Audio FX">
+            <span id="soundIcon">🔊</span>
+            <span class="btn-text">SFX: ON</span>
+          </button>
+          <div class="sys-status-badge glitch-pulse red-zone red-zone-08" id="sysStatusWidget" data-redzone-id="8"
+            title="Activate both dual switches within 5s to verify auth record...">
+            <div class="dual-switches-row">
+              <button class="dual-switch-btn" id="dualSwitchA" type="button">SW-A [OFF]</button>
+              <button class="dual-switch-btn" id="dualSwitchB" type="button">SW-B [OFF]</button>
+            </div>
+            <span class="redzone-status-badge" id="rzBadge8"></span>
+          </div>
+        </div>
+      </div>
+  </nav>
+
+  <!-- Main Content Wrapper -->
+  <main class="main-content">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="hero-particles" id="heroParticles"></div>
+      <div class="hero-content">
+        <div class="cyber-badge">
+          <span class="badge-icon">⚡</span>
+          <span>RECOVERED NODE // SECTOR 07</span>
+        </div>
+        <h1 class="hero-title glitch-text" data-text="WELCOME TO GAME ELYSIUM">
+          WELCOME TO <br><span class="gradient-text">GAME ELYSIUM</span>
+        </h1>
+        <p class="hero-subtitle">
+          Next-Generation Neural Gaming & Autonomous Infrastructure. <br>
+          <span class="corrupt-text">[WARNING: DATA CORRUPTION SPOTTED AT NODE B-42]</span>
+        </p>
+        <div class="hero-cta-group">
+          <a href="#features" class="cyber-btn primary-btn">
+            <span>EXPLORE SYSTEM</span>
+            <span class="btn-arrow">→</span>
+          </a>
+          <a href="#about" class="cyber-btn secondary-btn">
+            <span>SYSTEM LOGS</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section (Distraction Content) -->
+    <section id="about" class="about-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">// 01. ARCHITECTURE</span>
+          <h2 class="section-title">ABOUT ELYSIUM PLATFORM</h2>
+          <div class="title-bar"></div>
+        </div>
+
+        <div class="about-grid">
+          <div class="glass-card about-info">
+            <h3>Autonomous Distributed Mesh</h3>
+            <p>
+              Game Elysium powers over 10 million concurrent real-time gaming instances through cloud-edge synthesis.
+              Our proprietary neural dispatchers ensure ultra-low latency sub-5ms rendering pipelines worldwide.
+            </p>
+
+            <!-- Red Zone 04: Broken Image / Corrupted Diagram Node (Long Press 2s) -->
+            <div class="broken-image-card red-zone red-zone-04" id="brokenImageNode" data-redzone-id="4"
+              title="Press and hold cursor for 2s to extract corrupted archive...">
+              <div class="broken-image-frame">
+                <div class="tearing-glitch-layer"></div>
+                <div class="red-scan-overlay"></div>
+                <span class="broken-img-icon">⚠️</span>
+                <span class="broken-img-text">DATA NODE GRAPHIC [CORRUPTED_PIXELS]</span>
+                <div class="longpress-bar" id="longpressBar"></div>
+              </div>
+              <span class="redzone-status-badge" id="rzBadge4"></span>
+            </div>
+
+            <div class="stats-row">
+              <div class="stat-item">
+                <span class="stat-num">99.99%</span>
+                <span class="stat-lbl">UPTIME</span>
+              </div>
+              <div class="stat-item" id="statThroughput">
+                <span class="stat-num">4.2 TB/s</span>
+                <span class="stat-lbl">THROUGHPUT</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-num">120K</span>
+                <span class="stat-lbl">NODES</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Red Zone 02: Hidden Terminal -->
+          <div class="glass-card about-terminal" id="aboutTerminal">
+            <div class="terminal-header">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="term-title">sys_diagnostic.sh</span>
+            </div>
+            <pre class="terminal-body"><code><span class="t-cyan">$</span> ./verify_integrity.sh --all
+[OK] Core Kernel 6.12-elysium
+[OK] Neural Edge Pipeline
+<span class="t-red">[FAIL] Memory Sector #3 Integrity Compromised</span>
+<span class="t-yellow">[WARN] Encrypted payloads scattered in DOM nodes</span>
+<span class="t-cyan">$</span> listening on port 8080...</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section (Card 2 is Fragment 2 Trigger - Double Click) -->
+    <section id="features" class="features-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">// 02. CORE MODULES</span>
+          <h2 class="section-title">SYSTEM FEATURES</h2>
+          <div class="title-bar"></div>
+        </div>
+
+        <div class="features-grid">
+          <!-- Card 1 -->
+          <div class="glass-card feature-card">
+            <div class="card-icon">🧠</div>
+            <h3>AI Engine</h3>
+            <p>Adaptive deep learning agents running procedural world generation and predictive physics.</p>
+            <div class="card-tag">MODULE_01</div>
+          </div>
+
+          <!-- Red Zone 02: Cyber Security Card (Double-Click) -->
+          <div class="glass-card feature-card clue-card red-zone red-zone-02" id="cardCyberSecurity" data-redzone-id="2"
+            title="Double-click to run deep scan and recover system log...">
+            <div class="card-icon glitch-icon">🛡️</div>
+            <h3>Cyber Security</h3>
+            <p>Quantum-grade encryption matrix securing neural telemetry & transaction ledgers.</p>
+            <div class="card-tag highlight-tag">MODULE_02</div>
+            <div class="scan-overlay"></div>
+            <span class="redzone-status-badge" id="rzBadge2"></span>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="glass-card feature-card">
+            <div class="card-icon">☁️</div>
+            <h3>Cloud Infrastructure</h3>
+            <p>Zero-latency distributed edge compute clusters with auto-scaling dynamic nodes.</p>
+            <div class="card-tag">MODULE_03</div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="glass-card feature-card">
+            <div class="card-icon">⚡</div>
+            <h3>Neural Gaming</h3>
+            <p>Direct haptic brain-computer interface protocol standard for immersive experiences.</p>
+            <div class="card-tag">MODULE_04</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">// 03. PIPELINE</span>
+          <h2 class="section-title">SERVICES & WORKFLOW</h2>
+          <div class="title-bar"></div>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot">01</div>
+            <div class="glass-card timeline-content">
+              <h3>Quantum Telemetry</h3>
+              <p>Continuous monitoring of server packet health and high-frequency cryptographic logs.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot">02</div>
+            <div class="glass-card timeline-content">
+              <h3>Neural Mesh Sync</h3>
+              <p>Real-time synchronization across cross-region edge clusters with zero packet drop.</p>
+            </div>
+          </div>
+
+          <!-- Red Zone 06: Drag & Drop Recovery Zone (Access Fragment 3) -->
+          <div class="timeline-item" id="timelineZeroTrust">
+            <div class="timeline-dot">03</div>
+            <div class="glass-card timeline-content red-zone red-zone-06" id="redZone06Container" data-redzone-id="6"
+              title="Drag corrupted file into drop zone to extract Access Fragment 3...">
+              <h3>Zero-Trust Shield // FRAGMENT RECOVERY</h3>
+              <p>Automated isolation protocol. Drag the corrupted node payload into the recovery field below:</p>
+
+              <div class="drag-drop-area">
+                <div class="drag-source-chip" id="dragCorruptedFile" draggable="true">
+                  <span>📄 FRAGMENT_NODE_03.DAT</span>
+                  <span class="drag-handle">⋮⋮</span>
+                </div>
+                <div class="drop-recovery-zone" id="dropRecoveryZone">
+                  <span class="drop-icon">📥</span>
+                  <span class="drop-text">DROP CORRUPTED FRAGMENT HERE</span>
+                </div>
+              </div>
+              <span class="redzone-status-badge" id="rzBadge6"></span>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot">04</div>
+            <div class="glass-card timeline-content">
+              <h3>Bio-Interface Relay</h3>
+              <p>Ultra-responsive input streaming framework crafted for high-tier cyber console users.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">// 04. COMMUNICATIONS</span>
+          <h2 class="section-title">SYSTEM INQUIRIES</h2>
+          <div class="title-bar"></div>
+        </div>
+
+        <div class="contact-grid">
+          <div class="glass-card contact-form-card">
+            <form id="dummyForm"
+              onsubmit="event.preventDefault(); alert('TERMINAL READ-ONLY: Communications link disabled due to network corruption.');">
+              <div class="form-group">
+                <label>OPERATOR NAME</label>
+                <input type="text" placeholder="Agent 07..." required>
+              </div>
+              <div class="form-group">
+                <label>COMM DISPATCH (EMAIL)</label>
+                <input type="email" placeholder="agent@digitalrecovery.unit" required>
+              </div>
+              <div class="form-group">
+                <label>REPORT DETAIL</label>
+                <textarea rows="3" placeholder="Enter investigation observation notes..."></textarea>
+              </div>
+              <button type="submit" class="cyber-btn primary-btn full-width">
+                <span>SEND TRANSMISSION</span>
+              </button>
+            </form>
+          </div>
+
+          <div class="glass-card contact-meta">
+            <!-- Red Zone 07: Archive Node Location (Order Puzzle: 1. FIREWALL -> 2. DATABASE -> 3. SERVER) -->
+            <div class="meta-item red-zone red-zone-07" id="archiveCard" data-redzone-id="7"
+              title="Activate nodes in correct order (Firewall -> Database -> Server) to unlock security report...">
+              <span class="meta-icon">📍</span>
+              <div style="flex: 1">
+                <h4>SECURITY NODE ARCHIVE // ORDER PUZZLE</h4>
+                <div class="puzzle-chips-container">
+                  <button class="puzzle-chip-btn" id="puzzleChip1" data-step="1" type="button">1. FIREWALL</button>
+                  <button class="puzzle-chip-btn" id="puzzleChip2" data-step="2" type="button">2. DATABASE</button>
+                  <button class="puzzle-chip-btn" id="puzzleChip3" data-step="3" type="button">3. SERVER</button>
+                </div>
+              </div>
+              <span class="redzone-status-badge" id="rzBadge7"></span>
+            </div>
+
+            <div class="meta-item">
+              <span class="meta-icon">📞</span>
+              <div>
+                <h4>SECURE FREQUENCY</h4>
+                <p>+1 (800) 555-ELYSIUM</p>
+              </div>
+            </div>
+
+            <!-- Red Zone 05: Contact Email (Triple-Click within 2s) -->
+            <div class="meta-item red-zone red-zone-05" id="contactEmailZone" data-redzone-id="5"
+              title="Triple-click email within 2s to decrypt deleted message...">
+              <span class="meta-icon">✉️</span>
+              <div>
+                <h4>DISPATCH EMAIL <span class="email-warning-glyph">⚠️</span> [TRIPLE-CLICK]</h4>
+                <p class="flicker-email-text">support@gameelysium.local</p>
+              </div>
+              <span class="redzone-status-badge" id="rzBadge5"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer (Red Zone 03: Copyright Trigger - Click 5 Times) -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="logo-symbol">❖</span>
+        <span>GAME ELYSIUM PLATFORM</span>
+      </div>
+
+      <div class="footer-copyright red-zone red-zone-03" id="footerCopyright" data-redzone-id="3"
+        title="Click 5 times to query sector ledger and recover Access Fragment 2...">
+        <p><span class="red-warning-icon">🚨</span> © 2026 GAME ELYSIUM INC. ALL RIGHTS RESERVED. <span
+            class="copyright-code">DONT CLICK HERE ❌</span></p>
+        <div class="click-pulse-indicator" id="copyrightPulse"></div>
+        <span class="redzone-status-badge" id="rzBadge3"></span>
+      </div>
+
+      <div class="footer-links">
+        <a href="#hero">Privacy Policy</a>
+        <span>•</span>
+        <a href="#hero">Terms of Service</a>
+        <span>•</span>
+        <a href="#hero">Security Diagnostics</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Persistent Digital Forensics Sidebar HUD (v2.0) -->
+  <aside class="forensics-sidebar-hud" id="sidebarHud">
+    <!-- Sidebar Header -->
+    <div class="sidebar-header">
+      <div class="sidebar-title-row">
+        <span class="sidebar-icon">🕵</span>
+        <span class="sidebar-title">DIGITAL FORENSICS</span>
+      </div>
+      <div class="sidebar-status-badge">
+        <span class="pulse-dot-green"></span>
+        <span>INVESTIGATION ACTIVE</span>
+      </div>
+    </div>
+
+    <!-- Top Card: Progress & Percentage -->
+    <div class="sidebar-card progress-card">
+      <div class="progress-card-header">
+        <span class="progress-label">EVIDENCE RECOVERED</span>
+        <span class="progress-count" id="sbProgressCount">0 / 8</span>
+      </div>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill-cyan" id="sbProgressBarFill" style="width: 0%"></div>
+      </div>
+      <div class="progress-percentage-text" id="sbProgressPct">0% COMPLETE</div>
+    </div>
+
+    <!-- 8 Live Evidence Cards List -->
+    <div class="sidebar-section-title">// LIVE EVIDENCE LIST</div>
+    <div class="evidence-cards-list" id="sbEvidenceCardsList">
+      <!-- Rendered dynamically by JS -->
+    </div>
+
+    <!-- Fragment Reconstruction & Assembly Panel -->
+    <div class="sidebar-section-title">// ACCESS FRAGMENTS</div>
+    <div class="sidebar-card fragments-assembly-card" id="sbFragmentCard">
+      <div class="assembly-display-row">
+        <div class="frag-part-box" id="sbFragBox1">
+          <span class="frag-part-lbl">FRAG 1</span>
+          <span class="frag-part-val" id="sbFragVal1">---</span>
+        </div>
+        <span class="frag-sep">-</span>
+        <div class="frag-part-box" id="sbFragBox2">
+          <span class="frag-part-lbl">FRAG 2</span>
+          <span class="frag-part-val" id="sbFragVal2">---</span>
+        </div>
+        <span class="frag-sep">-</span>
+        <div class="frag-part-box" id="sbFragBox3">
+          <span class="frag-part-lbl">FRAG 3</span>
+          <span class="frag-part-val" id="sbFragVal3">---</span>
+        </div>
+      </div>
+      <div class="assembly-key-string" id="sbAssemblyKeyString">PENDING FRAGMENTS...</div>
+    </div>
+
+    <!-- Ready Card & Reconstruct CTA Button Area -->
+    <div id="sbReconstructArea">
+      <div class="ready-card hidden" id="sbReadyCard">
+        <div class="ready-card-title">✨ READY TO RECONSTRUCT</div>
+        <div class="ready-card-sub">All required fragments recovered. Mission ready.</div>
+      </div>
+
+      <button class="cyber-btn reconstruct-btn full-width" id="reconstructBtn" disabled>
+        <span>⚡ RECONSTRUCT ACCESS KEY</span>
+      </button>
+    </div>
+
+    <!-- Access Key Panel (After Reconstruction) -->
+    <div class="sidebar-card access-key-panel hidden" id="sbAccessKeyPanel">
+      <div class="key-panel-title">ACCESS KEY #3</div>
+      <div class="key-panel-value" id="sbAccessKeyValue">GE-42LK-91</div>
+      <div class="key-panel-status">MISSION COMPLETE</div>
+      <button class="cyber-btn primary-btn full-width" id="sbCopyKeyBtn">
+        <span>🚀 COPY & RETURN</span>
+      </button>
+    </div>
+
+    <!-- Live Activity Log -->
+    <div class="sidebar-section-title">// LIVE ACTIVITY LOG</div>
+    <div class="sidebar-activity-log" id="sbActivityLog">
+      <div class="log-empty">No evidence collected yet.</div>
+    </div>
+  </aside>
+
+  <!-- Top-Right Red Zone Notification Toast -->
+  <div class="redzone-toast-notification" id="toastNotification">
+    <div class="toast-top">
+      <span class="toast-blink">🚨</span>
+      <span class="toast-header-text">RED ZONE DETECTED</span>
+    </div>
+    <div class="toast-title" id="toastTitle">ACCESS FRAGMENT RECOVERED</div>
+    <div class="toast-value-row">
+      <span class="toast-label" id="toastLabel">Fragment:</span>
+      <span class="toast-val" id="toastVal">GE</span>
+    </div>
+    <div class="toast-footer">Stored Successfully <span id="toastCountBadge">(0 / 8)</span></div>
+  </div>
+
+  <!-- Access Key Reconstruction Assembly Modal -->
+  <div class="modal-backdrop" id="keyModal">
+    <div class="glass-modal hud-popup key-assembly-modal">
+      <div class="modal-glow-border neon-cyan"></div>
+
+      <div class="modal-header">
+        <span class="modal-badge-icon">🔐</span>
+        <h3>ACCESS KEY #3 RECONSTRUCTION</h3>
+      </div>
+
+      <div class="modal-body">
+        <div class="scanning-phase" id="scanningPhase">
+          <div class="cyber-spinner"></div>
+          <p class="scan-status-text">DECRYPTING & SYNCHRONIZING FRAGMENTS...</p>
+          <div class="progress-bar-container">
+            <div class="progress-bar-fill" id="scanProgressFill"></div>
+          </div>
+        </div>
+
+        <div class="result-phase hidden" id="resultPhase">
+          <div class="success-banner">
+            <span>MISSION COMPLETE</span>
+          </div>
+          <div class="key-box">
+            <span class="key-label">ACCESS KEY #3:</span>
+            <div class="key-display" id="finalAccessKeyDisplay">GE-42LK-91</div>
+          </div>
+          <p class="key-instruction" id="keyInstruction">
+            Copy this Access Key and return to the <strong>Mission Console</strong> to verify and unlock the final
+            mission!
+          </p>
+          <div class="fallback-notice hidden" id="fallbackNotice" style="margin-top: 1rem; padding: 0.8rem; background: rgba(0, 229, 255, 0.08); border: 1px dashed var(--color-primary, #00e5ff); border-radius: 4px; text-align: center; font-family: var(--font-mono); font-size: 0.82rem; color: #e0f7fa;">
+            <div style="font-weight: 700; color: var(--color-primary, #00e5ff); margin-bottom: 0.3rem;">Mission Console is already open.</div>
+            <div>Paste the copied Access Key there to continue.</div>
+            <div style="margin-top: 0.3rem; color: var(--color-muted, #6482a0);">You may now close this tab.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer hidden" id="keyModalFooter" style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
+        <button class="cyber-btn secondary-btn" id="copyKeyOnlyBtn">
+          <span>📋 COPY KEY</span>
+        </button>
+        <button class="cyber-btn primary-btn" id="copyAndReturnBtn">
+          <span>🚀 COPY & RETURN</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

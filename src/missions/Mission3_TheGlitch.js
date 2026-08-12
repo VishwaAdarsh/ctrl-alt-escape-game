@@ -13,7 +13,7 @@ export function renderMission3(container) {
   let accessKeyInput = '';
   let verificationReady = false;
 
-  const targetUrl = '/src/missions/GLITCH WEBSITE/index.html';
+  const targetUrl = '/glitch-website/index.html';
 
   renderMissionConsoleLayout(container, {
     missionNumberLabel: 'MISSION 03',
